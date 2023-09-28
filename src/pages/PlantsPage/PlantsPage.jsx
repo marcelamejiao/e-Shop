@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { PlantsContext } from "../../context/PlantsContextProvider";
+import PlantList from '../../container/PlantList/PlantList';
 
 
 const PlantsPage = () => {
@@ -13,6 +14,7 @@ const PlantsPage = () => {
 	return (
 		<main>
 			<h1>Plants</h1>
+			{plants.length > 0 && <PlantList plants={plants} />}
 		</main>
 	);
 }
