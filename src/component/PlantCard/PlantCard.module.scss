@@ -1,0 +1,16 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  width: 20%;
+  height: 20rem;
+  border: 0.3rem solid rgb(155, 153, 153);
+  border-radius: 1rem;
+  align-items: center;
+  img {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    object-fit: cover;
+  }
+}

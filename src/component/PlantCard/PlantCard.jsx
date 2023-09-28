@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+import styles from '../PlantCard/PlantCard.module.scss';
 
 const PlantCard = ({ plant }) => {
 	return (
-		<article>
+		<article className={styles.card}>
 			<h2>{plant.name}</h2>
 			<img src={plant.imageLink} alt={plant.name} />
 			<p>{plant.price}</p>
