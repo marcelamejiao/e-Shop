@@ -6,7 +6,7 @@ const PlantCard = ({ plant }) => {
 		<article className={styles.card}>
 			<h2>{plant.name}</h2>
 			<img src={plant.imageLink} alt={plant.name} />
-			<p>{plant.price}</p>
+			<p>Price: ${plant.price}</p>
 			<Link to={plant.id}>See more...</Link>
 		</article>
 	);
