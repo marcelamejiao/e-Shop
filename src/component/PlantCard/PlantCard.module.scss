@@ -4,9 +4,20 @@
   gap: 0.25em;
   width: 20%;
   height: 20rem;
-  border: 0.3rem solid rgb(155, 153, 153);
+  border: 0.2rem solid rgba(155, 153, 153, 0.678);
+  box-shadow: 0 3px 4px rgba(53, 55, 45, 0.501);
   border-radius: 1rem;
   align-items: center;
+  opacity: 0.9;
+
+  &:hover{
+      transform: translateY(-3px);
+      border: none;
+      border-bottom: 0.5rem solid rgba(125, 160, 140, 0.932);
+      border-top: 0.5rem solid rgba(125, 160, 140, 0.932);
+      transition: all 0.30s ease-in;
+      opacity: 1;
+  }
   img {
     width: 50%;
     height: 50%;

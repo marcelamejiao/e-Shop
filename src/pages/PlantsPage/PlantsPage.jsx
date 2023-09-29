@@ -13,7 +13,7 @@ const PlantsPage = () => {
 
 	return (
 		<main>
-			<h1>Plants</h1>
+			<h1>Welcome to Verde</h1>
 			{plants.length > 0 && <PlantList plants={plants} />}
 		</main>
 	);
