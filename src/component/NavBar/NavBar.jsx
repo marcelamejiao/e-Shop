@@ -8,9 +8,6 @@ const NavBar = () => {
 
   return (
     <nav className={styles.nav}>
-      <NavLink className={navLinkClasses} to='/'>
-        Home
-      </NavLink>
       <NavLink className={navLinkClasses} to='/plants'>
         Plants
       </NavLink>

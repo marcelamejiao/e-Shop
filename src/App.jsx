@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LandingPage from "./pages/LandingPage/LandingPage";
 import PlantsPage from './pages/PlantsPage/PlantsPage';
 import PlantsContextProvider from './context/PlantsContextProvider';
 import PlantPage from './pages/PlantPage/PlantPage';
@@ -15,7 +14,6 @@ function App() {
             <NavBar />
           </header>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
             <Route path="/plants" element={<PlantsPage />} />
             <Route path='/plants/:id' element={<PlantPage />} />
           </Routes>
