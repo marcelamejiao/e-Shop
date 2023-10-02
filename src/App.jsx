@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PlantsPage from './pages/PlantsPage/PlantsPage';
 import PlantsContextProvider from './context/PlantsContextProvider';
 import PlantPage from './pages/PlantPage/PlantPage';
@@ -14,6 +14,7 @@ function App() {
             <NavBar />
           </header>
           <Routes>
+            <Route path="/" element={<Navigate to="/plants" replace />} />
             <Route path="/plants" element={<PlantsPage />} />
             <Route path='/plants/:id' element={<PlantPage />} />
           </Routes>
