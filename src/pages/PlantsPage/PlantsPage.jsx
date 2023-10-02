@@ -1,13 +1,15 @@
-import { useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { PlantsContext } from "../../context/PlantsContextProvider";
 import PlantList from '../../container/PlantList/PlantList';
+import { liveStockUpdate } from '../../services/items-services';
 
 
 const PlantsPage = () => {
-	const { plants, refreshPlants } = useContext(PlantsContext);
+	const [ plants, refreshPlants ] = useState([]);
 
 	useEffect(() => {
-		refreshPlants();		
+		const liveStock = liveStockUpdate(refreshPlants);
+		return () => liveStock();		
 	}, []);
 
 

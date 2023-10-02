@@ -13,13 +13,27 @@ const PlantsContextProvider = ({ children }) => {
 
 	}
 
-
 	useEffect(() => {
 		refreshPlants();		
 	}, []);
 
+	const updatePlantById = (id, data) => {
+    const copy = [...plants];
+    const foundIndex = copy.findIndex((plant) => plant.id === id);
+    const foundPlant = copy[foundIndex];
+    const updatedPlant = { ...foundPlant, ...data };
+    copy[foundIndex] = updatedPlant;
+    setPlants(copy);
+  };
+
 	return (
-		<PlantsContext.Provider value={{plants, refreshPlants}}>
+		<PlantsContext.Provider 
+			value={{
+				plants, 
+				refreshPlants,
+				updatePlantById,
+			}}
+		>
 			{children}
 		</PlantsContext.Provider>
 	);

@@ -3,6 +3,7 @@ import {
 	getDocs,
 	doc,
 	getDoc,
+	onSnapshot,
 } from 'firebase/firestore';
 import { db } from '../config/firestore';
 
@@ -20,3 +21,16 @@ export const getPlantById = async (id) => {
 	}
 	return { id: querySnapshot.id, ...querySnapshot.data()};
 }
+
+export const liveStockUpdate = (callback) => {
+  const collectionRef = collection(db, 'shop-items');
+  const unsubscribe = onSnapshot(collectionRef, (snapshot) => {
+    const plantData = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    callback(plantData);
+  });
+
+  return unsubscribe;
+};
