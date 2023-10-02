@@ -27,6 +27,7 @@ const AddToCartForm = ({ plant }) => {
 					<input 
 						type="radio" 
 						id="colors"
+						value={variant.color}
 						{...register('colors')}
 					/>
 					<label htmlFor="colors"> {variant.color}</label>
