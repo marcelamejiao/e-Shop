@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { getPlantById } from '../../services/items-services';
+import AddToCartForm from "../../component/AddToCartForm/AddToCartForm";
 import styles from '../PlantPage/PlantPage.module.scss';
 
 const PlantMovie = () => {
@@ -22,10 +23,7 @@ const PlantMovie = () => {
 					<h1>{plant.name}</h1>
 					<img className={styles.image} src={plant.imageLink} alt={plant.name} />
 					<p>Price: ${plant.price}</p>
-					<ul>Colors: 
-						{plant.variants.map((variant, index) => <li key={index}>{variant.color}</li>
-						)}
-					</ul>
+					<AddToCartForm plant={plant}/>
 				</div>
 			)}
 			{error && <p>Could not find plant with Id: {id}</p>}
