@@ -11,6 +11,9 @@ const NavBar = () => {
       <NavLink className={navLinkClasses} to='/plants'>
         Plants
       </NavLink>
+      <NavLink className={navLinkClasses} to='/shoppingCart'>
+        My Cart
+      </NavLink>
     </nav>
   );
 };

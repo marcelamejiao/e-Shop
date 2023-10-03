@@ -26,6 +26,10 @@ const PlantsContextProvider = ({ children }) => {
     setPlants(copy);
   };
 
+	// // Add item to shopping cart
+	// const addPlantToShoppingCart = ()
+
+
 	return (
 		<PlantsContext.Provider 
 			value={{
