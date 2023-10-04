@@ -6,9 +6,7 @@ export const PlantsContext = createContext(null);
 
 const PlantsContextProvider = ({ children }) => {
 	const [plants, setPlants] = useState([]);
-	const [shoppingCart, setShoppingCart] = useState([]);
-
-	updateShoppingCart({data: 25});
+	const [shoppingCart, setShoppingCart] = useState({items: []});
 
 	const refreshPlants = () => {
 		getAllPlants()
@@ -31,8 +29,15 @@ const PlantsContextProvider = ({ children }) => {
 
 	// Add item to shopping cart
 	const addItemToShoppingCart = (item) => {
-		console.log(item)
+		shoppingCart.items.push(item)
+		const updatedShoppingCart = {...shoppingCart}
+
+		setShoppingCart(updatedShoppingCart);
+
+		updateShoppingCart(updatedShoppingCart);
 	}
+
+	
 
 
 	return (

@@ -19,7 +19,8 @@ const AddToCartForm = ({ plant }) => {
 	const formSubmit = (data) => {
 		const item = {
 			...data,
-			plantId: plant.id
+			plantId: plant.id,
+			quantity: 1
 		}
 
 		addItemToShoppingCart(item);

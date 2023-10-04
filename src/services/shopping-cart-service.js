@@ -9,12 +9,9 @@ const shoppingCartId = '1'
 export const updateShoppingCart = async (data) => {
 	try {
 		await setDoc(
-			doc(db, 'shopping-cart', shoppingCartId),
-			{
-				...data,
-				quantity: 1
-			}
-			)
+			doc(db, 'shopping-cart', shoppingCartId), 
+			data
+		)
 	} catch (e) {
 		console.log(e);
     throw e;
