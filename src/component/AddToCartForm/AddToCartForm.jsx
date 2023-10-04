@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { PlantsContext } from '../../context/PlantsContextProvider';
 
 const AddToCartForm = ({ plant }) => {
+	const { addItemToShoppingCart } = useContext(PlantsContext);
 
 	const {
 	register,
@@ -15,7 +17,12 @@ const AddToCartForm = ({ plant }) => {
 	}, [isSubmitSuccessful]);
 
 	const formSubmit = (data) => {
-    console.log('form was submitted with ', data);
+		const item = {
+			...data,
+			plantId: plant.id
+		}
+
+		addItemToShoppingCart(item);
   };
 
 	return (
@@ -25,10 +32,11 @@ const AddToCartForm = ({ plant }) => {
 				{plant.variants.map((variant, index) => 
 				<div key={index}>
 					<input 
+						required
 						type="radio" 
 						id="colors"
-						value={variant.color}
-						{...register('colors')}
+						value={variant.id}
+						{...register('variantId')}
 					/>
 					<label htmlFor="colors"> {variant.color}</label>
 					{errors.username && (

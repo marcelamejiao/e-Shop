@@ -1,16 +1,19 @@
 import { createContext, useEffect, useState } from "react";
 import { getAllPlants } from "../services/items-services";
+import { updateShoppingCart } from "../services/shopping-cart-service";
 
 export const PlantsContext = createContext(null);
 
 const PlantsContextProvider = ({ children }) => {
 	const [plants, setPlants] = useState([]);
+	const [shoppingCart, setShoppingCart] = useState([]);
+
+	updateShoppingCart({data: 25});
 
 	const refreshPlants = () => {
 		getAllPlants()
 		.then((plants) => setPlants(plants))
 		.catch((e) => console.log(e));
-
 	}
 
 	useEffect(() => {
@@ -26,8 +29,10 @@ const PlantsContextProvider = ({ children }) => {
     setPlants(copy);
   };
 
-	// // Add item to shopping cart
-	// const addPlantToShoppingCart = ()
+	// Add item to shopping cart
+	const addItemToShoppingCart = (item) => {
+		console.log(item)
+	}
 
 
 	return (
@@ -36,6 +41,7 @@ const PlantsContextProvider = ({ children }) => {
 				plants, 
 				refreshPlants,
 				updatePlantById,
+				addItemToShoppingCart,
 			}}
 		>
 			{children}
