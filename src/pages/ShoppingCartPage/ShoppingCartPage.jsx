@@ -22,6 +22,7 @@ const ShoppingCartPage = () => {
 											key={index} 
 											itemIndex={index} 
 											cartQuantity={item.quantity}
+											variantId={item.variantId}
 											plant={foundPlant} 
 										/>;
 					})

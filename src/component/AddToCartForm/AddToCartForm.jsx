@@ -17,7 +17,8 @@ const AddToCartForm = ({ plant }) => {
 
 	const formSubmit = (data) => {
 		const item = {
-			...data,
+			// Conver variantId to a number
+			variantId: Number(data.variantId),
 			plantId: plant.id,
 			quantity: 1
 		}
