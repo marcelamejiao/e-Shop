@@ -26,6 +26,7 @@ export const getShoppingCart = async () => {
 	}
 }
 
+// send the updated shopping cart data to the database
 export const updateShoppingCart = async (data) => {
 	try {
 		await setDoc(
