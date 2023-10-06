@@ -11,13 +11,17 @@ const Counter = ({ itemIndex, cartQuantity }) => {
 	}
 
 	const decrementQuantity = () => {
+		if(cartQuantity === 1) {
+			const deletePlant = window.confirm("Are you sure you want to delete this plant from your shopping cart?");
+			if(deletePlant === false) {
+				return
+			}
+		}
 
 		updateQuantityInShoppingCart(itemIndex, cartQuantity - 1);
 	}
 
-	if(cartQuantity <= 0) {
-		window.alert("Are you sure you want to delete this plant from your shopping cart?");
-	}
+
 
 	return (
 		<div>

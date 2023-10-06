@@ -28,21 +28,29 @@ const PlantsContextProvider = ({ children }) => {
 
 	// Update quantity in the shopping cart when press + and - in the Counter
 	const updateQuantityInShoppingCart = (itemIndex, cartQuantity) => {
-		// replacing the current quantity in the shopping cart item
-		shoppingCart.items[itemIndex].quantity = cartQuantity;
+
 		// clone the state variable, so React detects a new object and changes the state 
 		const updatedShoppingCart = {...shoppingCart};
+
+		if(cartQuantity === 0) {
+			updatedShoppingCart.items.splice(itemIndex, 1);
+		} else {
+			// replacing the current quantity in the shopping cart item
+			updatedShoppingCart.items[itemIndex].quantity = cartQuantity;
+		}
+
 		// update the state
 		setShoppingCart(updatedShoppingCart);
 		// give the state to the database 
 		updateShoppingCart(updatedShoppingCart);
+
+
 	}
 
 	// Add item to shopping cart
 	const addItemToShoppingCart = (item) => {
 		shoppingCart.items.push(item)
 		const updatedShoppingCart = {...shoppingCart}
-
 		setShoppingCart(updatedShoppingCart);
 		// updates my shopping cart service, my database
 		updateShoppingCart(updatedShoppingCart);
