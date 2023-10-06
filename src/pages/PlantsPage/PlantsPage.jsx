@@ -15,7 +15,7 @@ const PlantsPage = () => {
 	return (
 		<main>
 			<h1>Welcome to Verde</h1>
-			{<Carousel plants={plants} />}
+			{/* {<Carousel plants={plants} />} */}
 			{plants.length > 0 && <PlantList plants={plants} />}
 		</main>
 	);

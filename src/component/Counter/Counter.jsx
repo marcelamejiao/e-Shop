@@ -1,27 +1,27 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { PlantsContext } from '../../context/PlantsContextProvider';
 
-const Counter = () => {
+const Counter = ({ itemIndex, cartQuantity }) => {
+	const { updateQuantityInShoppingCart } = useContext(PlantsContext);
 
-	const [count, setCount] = useState(0);
-	const [totalItemsPerReference, setTotalItemsPerReference] = useState(1);
 
 	const incrementQuantity = () => {
-		setCount(count + 1);
-		setTotalItemsPerReference(totalItemsPerReference + 1);
+
+		updateQuantityInShoppingCart(itemIndex, cartQuantity + 1);
 	}
 
 	const decrementQuantity = () => {
-		setCount(count - 1);
-		setTotalItemsPerReference(totalItemsPerReference - 1);
+
+		updateQuantityInShoppingCart(itemIndex, cartQuantity - 1);
 	}
 
-	if(totalItemsPerReference <= 0) {
+	if(cartQuantity <= 0) {
 		window.alert("Are you sure you want to delete this plant from your shopping cart?");
 	}
 
 	return (
 		<div>
-			<h3>Quantity added: {totalItemsPerReference}</h3>
+			<h3>Quantity added: {cartQuantity}</h3>
 			<button onClick={incrementQuantity}>+</button>
 			<button onClick={decrementQuantity}>-</button>
 		</div>

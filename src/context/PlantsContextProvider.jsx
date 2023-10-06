@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { getAllPlants } from "../services/items-services";
-import { updateShoppingCart } from "../services/shopping-cart-service";
+import { updateShoppingCart, getShoppingCart } from "../services/shopping-cart-service";
 
 export const PlantsContext = createContext(null);
 
@@ -14,31 +14,34 @@ const PlantsContextProvider = ({ children }) => {
 		.catch((e) => console.log(e));
 	}
 
+	const refreshShoppingCart = () => {
+		getShoppingCart()
+		.then	((shoppingCart) => setShoppingCart(shoppingCart))
+		.catch((e) => console.log(e));
+	}
+
 	useEffect(() => {
-		refreshPlants();		
+		refreshPlants();
+		refreshShoppingCart();
 	}, []);
 
-	const updatePlantById = (id, data) => {
-    const copy = [...plants];
-    const foundIndex = copy.findIndex((plant) => plant.id === id);
-    const foundPlant = copy[foundIndex];
-    const updatedPlant = { ...foundPlant, ...data };
-    copy[foundIndex] = updatedPlant;
-    setPlants(copy);
-  };
+
+	// Update quantity in the shopping cart when press + and -
+
+	const updateQuantityInShoppingCart = (itemIndex, cartQuantity) => {
+		
+	}
 
 	// Add item to shopping cart
 	const addItemToShoppingCart = (item) => {
+		console.log(shoppingCart);
 		shoppingCart.items.push(item)
 		const updatedShoppingCart = {...shoppingCart}
 
 		setShoppingCart(updatedShoppingCart);
-
+		// updates my shopping cart service, my database
 		updateShoppingCart(updatedShoppingCart);
 	}
-
-	
-
 
 	return (
 		<PlantsContext.Provider 
@@ -47,6 +50,8 @@ const PlantsContextProvider = ({ children }) => {
 				refreshPlants,
 				updatePlantById,
 				addItemToShoppingCart,
+				shoppingCart,
+				updateQuantityInShoppingCart,
 			}}
 		>
 			{children}

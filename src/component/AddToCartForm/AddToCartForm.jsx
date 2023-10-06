@@ -4,7 +4,6 @@ import { PlantsContext } from '../../context/PlantsContextProvider';
 
 const AddToCartForm = ({ plant }) => {
 	const { addItemToShoppingCart } = useContext(PlantsContext);
-
 	const {
 	register,
 	reset,
@@ -24,6 +23,8 @@ const AddToCartForm = ({ plant }) => {
 		}
 
 		addItemToShoppingCart(item);
+		// TODO - temporaly alert
+		window.alert("Your item has been added to the shopping cart.")
   };
 
 	return (
