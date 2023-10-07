@@ -90,8 +90,28 @@ const PlantsContextProvider = ({ children }) => {
 
 	// Add item to shopping cart
 	const addItemToShoppingCart = (item) => {
-		shoppingCart.items.push(item)
+
+		// clone the shoppingCart state
 		const updatedShoppingCart = {...shoppingCart}
+
+		// Check if the item is already in the cart
+		const foundItem = updatedShoppingCart.items.find((shoppingCartItem) => {
+			if (shoppingCartItem.plantId === item.plantId && shoppingCartItem.variantId === item.variantId) {
+				return true;
+			} else {
+				return false;
+			}
+		})
+
+		// If we found the item in the shopping cart, increase the quantity
+		if (foundItem) {
+			foundItem.quantity += 1;
+		} else {
+			// If we didn't find the item in the shopping cart, add the item to the shopping cart
+			updatedShoppingCart.items.push(item)
+		}
+		
+		// Update the state
 		setShoppingCart(updatedShoppingCart);
 		// updates my shopping cart service, my database
 		updateShoppingCart(updatedShoppingCart);

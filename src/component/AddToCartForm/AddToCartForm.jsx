@@ -35,13 +35,14 @@ const AddToCartForm = ({ plant }) => {
 				{plant.variants.map((variant, index) => 
 				<div key={index}>
 					<input 
+						disabled={variant.quantity === 0}
 						required
 						type="radio" 
 						id="colors"
 						value={variant.id}
 						{...register('variantId')}
 					/>
-					<label htmlFor="colors"> {variant.color}</label>
+					<label htmlFor="colors"> {variant.color} {variant.quantity === 0 && <span>(Out of stock)</span>}</label>
 					{errors.username && (
           <p>{errors.username.message}</p>
         )}
