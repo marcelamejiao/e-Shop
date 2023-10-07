@@ -8,8 +8,8 @@ const ShoppingCartPage = () => {
 	const { plants } = useContext(PlantsContext);
 
 	const myShoppingListArr = (shoppingCart).items;
-
 	
+	let total = 0;
 	return (
 		
 		<div>
@@ -18,15 +18,21 @@ const ShoppingCartPage = () => {
 					myShoppingListArr.map((item, index) => {
 						const plantId = item.plantId;
 						const foundPlant = plants.find((plant) => plant.id === plantId);
+
+						const subTotal =  foundPlant.price * item.quantity;
+						total += subTotal;
 						return <ShoppingPlantCard 
 											key={index} 
 											itemIndex={index} 
 											cartQuantity={item.quantity}
 											variantId={item.variantId}
 											plant={foundPlant} 
+											subTotal={subTotal}
 										/>;
+						
 					})
 				}
+			<p>Total: ${total}</p>
 		</div>
 	);
 }
