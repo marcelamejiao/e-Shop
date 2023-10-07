@@ -15,6 +15,7 @@ const ShoppingPlantCard = ({ plant, itemIndex, cartQuantity, variantId }) => {
 			<img src={plant.imageLink} alt={plant.name} />
 			<p>Price: ${plant.price}</p>
 			<p><Counter itemIndex={itemIndex} cartQuantity={cartQuantity} stockQuantity={variant.quantity}/> </p>
+			<p>Subtotal: ${plant.price * cartQuantity}</p>
 		</article>
 	);
 }
