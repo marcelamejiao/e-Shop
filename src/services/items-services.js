@@ -4,6 +4,7 @@ import {
 	doc,
 	getDoc,
 	onSnapshot,
+	setDoc,
 } from 'firebase/firestore';
 import { db } from '../config/firestore';
 
@@ -20,6 +21,19 @@ export const getPlantById = async (id) => {
 		throw new Error('Document not found');
 	}
 	return { id: querySnapshot.id, ...querySnapshot.data()};
+}
+
+// send the updated plant to the database
+export const updatePlant = async (data, id) => {
+	try {
+		await setDoc(
+			doc(db, 'shop-items', id), 
+			data
+		)
+	} catch (e) {
+		console.log(e);
+    throw e;
+	}
 }
 
 export const liveStockUpdate = (callback) => {

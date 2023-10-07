@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getAllPlants } from "../services/items-services";
+import { getAllPlants, updatePlant } from "../services/items-services";
 import { updateShoppingCart, getShoppingCart } from "../services/shopping-cart-service";
 
 export const PlantsContext = createContext(null);
@@ -47,18 +47,45 @@ const PlantsContextProvider = ({ children }) => {
 
 	}
 
-	// clear the shopping cart after pressing the Buy button 
+	// Clear the shopping cart after pressing the Buy button 
 	const processPayment = () => {
 		const updatedShoppingCart = {...shoppingCart};
+
+		// get the quantity before clearing the cart
+		updatedShoppingCart.items.map(async (item) => {
+			// Quantity the customer bought
+			const quantityInCart = item.quantity;
+
+			// find plant in the plants array
+			const foundPlant = plants.find((plant) => plant.id === item.plantId);
+
+			const foundVariant = foundPlant.variants.find((variant) => variant.id === item.variantId);
+			
+			// Quantity current in Stock
+			const quantityInStock = foundVariant.quantity;
+
+			console.log(foundVariant);
+
+			// New quantity in Stock
+			const newQuantityInStock = quantityInStock - quantityInCart;
+
+			// Replace the quantity in stock with the new stock
+			foundVariant.quantity = newQuantityInStock;
+
+			// update firestore with the new stock
+			await updatePlant(foundPlant, foundPlant.id);
+		
+		})
+
 
 		updatedShoppingCart.items = []
 
 		// update the state
 		setShoppingCart(updatedShoppingCart);
 		// give the state to the database 
-		updateShoppingCart(updatedShoppingCart);
-		
+		updateShoppingCart(updatedShoppingCart);	
 	}
+
 
 
 	// Add item to shopping cart
@@ -69,6 +96,7 @@ const PlantsContextProvider = ({ children }) => {
 		// updates my shopping cart service, my database
 		updateShoppingCart(updatedShoppingCart);
 	}
+
 
 	return (
 		<PlantsContext.Provider 
