@@ -1,13 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PlantsContext } from '../../context/PlantsContextProvider';
 import ShoppingPlantCard from "../../component/ShoppingPlantCard/ShoppingPlantCard";
+import { Link } from 'react-router-dom';
 
 
 const ShoppingCartPage = () => {
-	const { shoppingCart } = useContext(PlantsContext);
+	const { shoppingCart, processPayment } = useContext(PlantsContext);
 	const { plants } = useContext(PlantsContext);
 
 	const myShoppingListArr = (shoppingCart).items;
+
+	const [showPaymentMessage, setshowPaymentMessage] = useState(false);
 	
 	let total = 0;
 	return (
@@ -33,6 +36,14 @@ const ShoppingCartPage = () => {
 					})
 				}
 			<p>Total: ${total}</p>
+			<button onClick={() => {
+				processPayment();
+				setshowPaymentMessage(true);
+			}}>Pay</button>
+			{
+				showPaymentMessage && 
+				(<div><p>Thank you for your purchase. </p><Link to="/plants">Home</Link></div>)
+			}
 		</div>
 	);
 }

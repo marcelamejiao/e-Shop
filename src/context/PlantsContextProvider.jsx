@@ -47,6 +47,20 @@ const PlantsContextProvider = ({ children }) => {
 
 	}
 
+	// clear the shopping cart after pressing the Buy button 
+	const processPayment = () => {
+		const updatedShoppingCart = {...shoppingCart};
+
+		updatedShoppingCart.items = []
+
+		// update the state
+		setShoppingCart(updatedShoppingCart);
+		// give the state to the database 
+		updateShoppingCart(updatedShoppingCart);
+		
+	}
+
+
 	// Add item to shopping cart
 	const addItemToShoppingCart = (item) => {
 		shoppingCart.items.push(item)
@@ -64,6 +78,7 @@ const PlantsContextProvider = ({ children }) => {
 				addItemToShoppingCart,
 				shoppingCart,
 				updateQuantityInShoppingCart,
+				processPayment,
 			}}
 		>
 			{children}
