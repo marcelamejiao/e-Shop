@@ -43,11 +43,13 @@ const ShoppingCartPage = () => {
 			</div>
 			<div className={paymentClasses}>
 				<p className={styles.total}>Total: ${total}</p>
-				<button onClick={() => {
-					processPayment();
-					setshowPaymentMessage(true);
-				}} className={styles.button}
-				>Pay</button>
+				{ myShoppingListArr.length > 0 &&
+					<button onClick={() => {
+						processPayment();
+						setshowPaymentMessage(true);
+					}} className={styles.button}
+					>Pay</button>
+				}
 			</div>
 			{
 				showPaymentMessage && 
