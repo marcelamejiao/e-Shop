@@ -15,14 +15,19 @@ const PlantMovie = () => {
 		.catch((error) => setError(error));
 	}, [id]);
 
+	const imageWrapper = styles["image-wrapper"];
 
 	return (
 		<main className={styles.container}>
 			{plant && (
 				<div className={styles.card}>
-					<h1 className={styles.title}>{plant.name}</h1>
-					<img className={styles.image} src={plant.imageLink} alt={plant.name} />
-					<p className={styles.price}>Price: ${plant.price}</p>
+					<div>
+						<h1 className={styles.title}>{plant.name}</h1>
+						<div className={imageWrapper}>
+							<img className={styles.image} src={plant.imageLink} alt={plant.name} />
+						</div>
+						<p className={styles.price}>Price: ${plant.price}</p>
+					</div>
 					<AddToCartForm plant={plant}/>
 				</div>
 			)}

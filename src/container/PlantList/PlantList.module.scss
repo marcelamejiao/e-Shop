@@ -1,3 +1,5 @@
+@use '../../partials/mixins.scss';
+
 .container {
   display: flex;
   flex-direction: column;
@@ -11,7 +13,17 @@
 }
 
 
+@include mixins.desktop {
+ .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+ } 
+}
 
+@include mixins.tablet {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  } 
+ }
 
-  // flex-wrap: wrap;
-  // gap: 1em;

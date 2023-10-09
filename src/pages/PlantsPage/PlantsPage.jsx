@@ -12,10 +12,11 @@ const PlantsPage = () => {
 		return () => liveStock();		
 	}, []);
 
+	let titleClass = styles['green-title'];
 
 	return (
 		<main >
-			<h1 className={styles.title}>Welcome to Verde</h1>
+			<h1 className={styles.title}>Welcome to <span className={titleClass}>Verde</span></h1>
 			<div className={styles.container}>
 				{<Carousel plants={plants} />}
 				{plants.length > 0 && <PlantList plants={plants} />}

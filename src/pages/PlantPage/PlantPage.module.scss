@@ -1,3 +1,5 @@
+@use '../../partials/mixins.scss';
+
 .container {
 	display: flex;
 	justify-content: center;
@@ -14,12 +16,18 @@
 	padding: 1rem;
 	box-shadow: 0 3px 4px rgba(53, 55, 45, 0.501);
 	opacity: 0.9;
+	display: flex;
+	flex-direction: column;
 
 	&:hover{
 		opacity: 1;
 		box-shadow: 0 3px 4px rgba(19, 19, 18, 0.501);
 	}
+}
 
+.image-wrapper {
+	display: flex;
+	justify-content: center;
 }
 
 .image {
@@ -40,3 +48,8 @@
 	font-style: oblique;
 }
 
+@include mixins.desktop {
+	.card {
+		 flex-direction: row;
+	} 
+ }

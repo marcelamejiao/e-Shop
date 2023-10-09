@@ -1,3 +1,5 @@
+@use '../../partials/mixins.scss';
+
 .card {
   display: flex;
   flex-direction: column;
@@ -27,3 +29,15 @@
     object-fit: cover;
   }
 }
+
+@include mixins.desktop {
+  .card {
+   width: 20%;
+  } 
+ }
+ 
+ @include mixins.tablet {
+   .card {
+    width: 40%;
+   } 
+  }

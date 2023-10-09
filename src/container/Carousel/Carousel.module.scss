@@ -1,3 +1,5 @@
+@use '../../partials/mixins.scss';
+
 .container {
 	display: flex;
 	justify-content: center;
@@ -19,7 +21,7 @@
 
 .title {
 	text-align: end;
-	letter-spacing: .6rem;
+	letter-spacing: .3rem;
 	font-weight: 900;
 }
 
@@ -32,10 +34,22 @@
 	margin: 0.5rem;
 	opacity: 0.8;
 	background-color: rgb(244, 218, 218);
+	cursor: pointer;
 
 	&:hover {
 		opacity: 1;
 	}
-
-
 }
+
+@include mixins.desktop {
+	.container {
+		width: 80%;
+		font-size: 2rem;
+	} 
+ }
+ 
+ @include mixins.tablet {
+	 .container {
+		font-size: 1.2rem;
+	 } 
+	}

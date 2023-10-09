@@ -36,9 +36,12 @@
 	margin: 0.5rem;
 	opacity: 0.9;
 	background-color: rgb(244, 218, 218);
+	cursor: pointer;
 
 	&:hover {
 		opacity: 1;
 		box-shadow: 0 3px 4px rgba(53, 55, 45, 0.501);
 	}
 }
+
+ 
