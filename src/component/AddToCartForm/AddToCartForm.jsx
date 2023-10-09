@@ -28,27 +28,33 @@ const AddToCartForm = ({ plant }) => {
 		window.alert("Your item has been added to the shopping cart.")
   };
 
+
+	let totalQuantityInStock = 0;
+	plant.variants.map((variant) => {
+		totalQuantityInStock += variant.quantity;
+	})
+
 	return (
 		<form onSubmit={handleSubmit(formSubmit)}>
 			<div>
 				Colors: 
 				{plant.variants.map((variant, index) => 
-				<div key={index}>
-					<input 
-						disabled={variant.quantity === 0}
-						required
-						type="radio" 
-						id="colors"
-						value={variant.id}
-						{...register('variantId')}
-					/>
-					<label htmlFor="colors"> {variant.color} {variant.quantity === 0 && <span>(Out of stock)</span>}</label>
-					{errors.username && (
-          <p>{errors.username.message}</p>
-        )}
-				</div>
+					<div key={index}>
+						<input 
+							disabled={variant.quantity === 0}
+							required
+							type="radio" 
+							id="colors"
+							value={variant.id}
+							{...register('variantId')}
+						/>
+						<label htmlFor="colors"> {variant.color} {variant.quantity === 0 && <span>(Out of stock)</span>}</label>
+						{errors.username && (
+						<p>{errors.username.message}</p>
+					)}
+					</div>
 				)}
-				<button>Add to cart</button>
+				<button disabled={totalQuantityInStock === 0} >Add to cart</button>
 			</div>
 		</form>
 	);
