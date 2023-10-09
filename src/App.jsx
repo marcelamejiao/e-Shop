@@ -4,6 +4,8 @@ import PlantsContextProvider from './context/PlantsContextProvider';
 import PlantPage from './pages/PlantPage/PlantPage';
 import ShoppingCartPage from './pages/ShoppingCartPage/ShoppingCartPage';
 import NavBar from './component/NavBar/NavBar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -21,6 +23,7 @@ function App() {
             <Route path="/shoppingCart" element={<ShoppingCartPage />} />
           </Routes>
         </BrowserRouter>
+        <ToastContainer />
       </PlantsContextProvider>
     </>
   )

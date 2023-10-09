@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { PlantsContext } from '../../context/PlantsContextProvider';
 import styles from '../AddToCartForm/AddToCartForm.module.scss';
+import { toast } from 'react-toastify';
 
 const AddToCartForm = ({ plant }) => {
 	const { addItemToShoppingCart } = useContext(PlantsContext);
@@ -25,8 +26,7 @@ const AddToCartForm = ({ plant }) => {
 		}
 
 		addItemToShoppingCart(item);
-		// TODO - temporaly alert
-		window.alert("Your item has been added to the shopping cart.")
+		toast.success("Your item has been added to the shopping cart!");
   };
 
 
@@ -57,6 +57,7 @@ const AddToCartForm = ({ plant }) => {
 				)}
 				<button className={styles.button} disabled={totalQuantityInStock === 0} >Add to cart</button>
 			</div>
+
 		</form>
 	);
 }
