@@ -1,5 +1,6 @@
 import CarouselItem from '../../component/CarouselItem/CarouselItem';
 import { useState } from 'react';
+import styles from "../Carousel/Carousel.module.scss";
 
 const Carousel = ({ plants }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -26,11 +27,13 @@ const Carousel = ({ plants }) => {
 		}
 	}
 
+	let buttonClasses = styles['slides-buttons']
+
 	return (
 		<>
-			<h2>Top Sellers:</h2>
-			<div style={{display: 'flex'}}>
-				<button onClick={previousSlide}>&#10094;</button>
+			<h2 className={styles.title}>Top Sellers:</h2>
+			<div className={styles.container}>
+				<button className={buttonClasses} onClick={previousSlide}>&#10094;</button>
 				{
 					plants
 						.filter((plant) => plant.favourited)
@@ -42,7 +45,7 @@ const Carousel = ({ plants }) => {
 							}
 						})
 				}
-				<button onClick={nextSlide}>&#10095;</button>
+				<button className={buttonClasses} onClick={nextSlide}>&#10095;</button>
 			</div>
 		</>
 	);

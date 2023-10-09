@@ -1,4 +1,5 @@
 import Counter from "../Counter/Counter";
+import styles from "../ShoppingPlantCard/ShoppingPlantCard.module.scss";
 
 const ShoppingPlantCard = ({ plant, itemIndex, cartQuantity, variantId, subTotal }) => {
 	// comparing the variant id from the shopping cart with the plant variant id, so I can give it to the Counter as a props
@@ -10,12 +11,14 @@ const ShoppingPlantCard = ({ plant, itemIndex, cartQuantity, variantId, subTotal
 	});
 
 	return (
-		<article>
-			<h2>{plant.name}</h2>
-			<img src={plant.imageLink} alt={plant.name} />
-			<p>Price: ${plant.price}</p>
-			<Counter itemIndex={itemIndex} cartQuantity={cartQuantity} stockQuantity={variant.quantity}/>
-			<p>Subtotal: ${subTotal}</p>
+		<article className={styles.card}>
+			<img className={styles.image} src={plant.imageLink} alt={plant.name} />
+			<div className={styles.info}>
+				<h2>{plant.name}</h2>
+				<p>Price: ${plant.price}</p>
+				<Counter itemIndex={itemIndex} cartQuantity={cartQuantity} stockQuantity={variant.quantity}/>
+				<p>Subtotal: ${subTotal}</p>
+			</div>
 		</article>
 	);
 }

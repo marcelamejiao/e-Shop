@@ -1,0 +1,39 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(128, 128, 128, 0.173);
+	opacity: 0.9;
+	border-top: 0.3rem solid 	rgb(244, 218, 218);
+	border-bottom: 0.3rem solid 	rgb(244, 218, 218) ;
+	margin: 1rem 0 1rem 0;
+  box-shadow: 0 3px 4px rgba(53, 55, 45, 0.501);
+	width: 100%;
+
+	&:hover {
+		opacity: 1;
+		transform: translateY(-3px);
+		transition: all 0.30s ease-in;
+	}
+}
+
+.title {
+	text-align: center;
+}
+
+.slides-buttons {
+	transition: 0.5s ease;
+	border-radius: 1rem;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 1rem;
+	margin: 0.5rem;
+	opacity: 0.8;
+	background-color: rgb(244, 218, 218);
+
+	&:hover {
+		opacity: 1;
+	}
+
+
+}

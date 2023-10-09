@@ -1,7 +1,17 @@
 .container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  width: 80%;
-  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.title {
+  text-align: center;
+  padding: 1rem;
+}
+
+
+
+
+  // flex-wrap: wrap;
+  // gap: 1em;

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import PlantList from '../../container/PlantList/PlantList';
 import { liveStockUpdate } from '../../services/items-services';
 import Carousel from "../../container/Carousel/Carousel";
+import styles from "../PlantsPage/PlantsPage.module.scss";
 
 const PlantsPage = () => {
 	const [ plants, refreshPlants ] = useState([]);
@@ -13,10 +14,13 @@ const PlantsPage = () => {
 
 
 	return (
-		<main>
-			<h1>Welcome to Verde</h1>
-			{<Carousel plants={plants} />}
-			{plants.length > 0 && <PlantList plants={plants} />}
+		<main >
+			<h1 className={styles.title}>Welcome to Verde</h1>
+			<div className={styles.container}>
+				{<Carousel plants={plants} />}
+				{plants.length > 0 && <PlantList plants={plants} />}
+			</div>
+
 		</main>
 	);
 }

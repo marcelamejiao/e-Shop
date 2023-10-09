@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { PlantsContext } from '../../context/PlantsContextProvider';
 import ShoppingPlantCard from "../../component/ShoppingPlantCard/ShoppingPlantCard";
 import { Link } from 'react-router-dom';
+import styles from '../ShoppingCartPage/ShoppingCartPage.module.scss';
 
 
 const ShoppingCartPage = () => {
@@ -13,10 +14,14 @@ const ShoppingCartPage = () => {
 	const [showPaymentMessage, setshowPaymentMessage] = useState(false);
 	
 	let total = 0;
+
+	let paymentClasses = styles['payment-area'];
+
 	return (
 		
 		<div>
-			<h2>Shopping Cart: </h2>
+			<h2 className={styles.title}>Your Shopping Cart</h2>
+			<div className={styles.container}>
 				{
 					myShoppingListArr.map((item, index) => {
 						const plantId = item.plantId;
@@ -35,14 +40,18 @@ const ShoppingCartPage = () => {
 						
 					})
 				}
-			<p>Total: ${total}</p>
-			<button onClick={() => {
-				processPayment();
-				setshowPaymentMessage(true);
-			}}>Pay</button>
+			</div>
+			<div className={paymentClasses}>
+				<p className={styles.total}>Total: ${total}</p>
+				<button onClick={() => {
+					processPayment();
+					setshowPaymentMessage(true);
+				}} className={styles.button}
+				>Pay</button>
+			</div>
 			{
 				showPaymentMessage && 
-				(<div><p>Thank you for your purchase. </p><Link to="/plants">Home</Link></div>)
+				(<div><p>Thank you for your purchase. </p><Link to="/plants">Return Home</Link></div>)
 			}
 		</div>
 	);

@@ -1,0 +1,28 @@
+.card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.9;
+	padding: 1rem;
+  box-shadow: 0 3px 4px rgba(53, 55, 45, 0.501);
+	width: 90%;
+	margin: 0.5rem;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	gap: 1rem;
+	font-size: smaller;
+}
+
+.image {
+	height: 200px;
+	width: 50%;
+	object-fit: cover;
+	border-radius: 1rem;
+	max-width: 150px;
+}
