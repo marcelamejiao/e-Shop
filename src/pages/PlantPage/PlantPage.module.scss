@@ -1,19 +1,42 @@
 .container {
 	display: flex;
 	justify-content: center;
+	align-items: center;
   width: 100%;
 	padding: 1rem;
+
 }
 
 .card{
 	border: 0.3rem solid 	rgb(244, 218, 218);
 	border-radius: 1rem;
 	text-align: center;
+	padding: 1rem;
+	box-shadow: 0 3px 4px rgba(53, 55, 45, 0.501);
+	opacity: 0.9;
+
+	&:hover{
+		opacity: 1;
+		box-shadow: 0 3px 4px rgba(19, 19, 18, 0.501);
+	}
+
 }
 
 .image {
-	height: 60%;
-	width: 70%;
+	height: 250px;
+	width:80%;
 	padding: 1rem;
 	object-fit: cover;
 }
+
+.title {
+	color: rgb(125, 160, 140);
+	font-weight: 900;
+}
+
+.price {
+	color: rgb(125, 160, 140);
+	font-weight: 800;
+	font-style: oblique;
+}
+

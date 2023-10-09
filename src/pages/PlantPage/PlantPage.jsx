@@ -20,9 +20,9 @@ const PlantMovie = () => {
 		<main className={styles.container}>
 			{plant && (
 				<div className={styles.card}>
-					<h1>{plant.name}</h1>
+					<h1 className={styles.title}>{plant.name}</h1>
 					<img className={styles.image} src={plant.imageLink} alt={plant.name} />
-					<p>Price: ${plant.price}</p>
+					<p className={styles.price}>Price: ${plant.price}</p>
 					<AddToCartForm plant={plant}/>
 				</div>
 			)}

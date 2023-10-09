@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { PlantsContext } from '../../context/PlantsContextProvider';
+import styles from '../AddToCartForm/AddToCartForm.module.scss';
 
 const AddToCartForm = ({ plant }) => {
 	const { addItemToShoppingCart } = useContext(PlantsContext);
@@ -54,7 +55,7 @@ const AddToCartForm = ({ plant }) => {
 					)}
 					</div>
 				)}
-				<button disabled={totalQuantityInStock === 0} >Add to cart</button>
+				<button className={styles.button} disabled={totalQuantityInStock === 0} >Add to cart</button>
 			</div>
 		</form>
 	);

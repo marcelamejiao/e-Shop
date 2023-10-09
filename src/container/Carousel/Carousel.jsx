@@ -31,7 +31,7 @@ const Carousel = ({ plants }) => {
 
 	return (
 		<>
-			<h2 className={styles.title}>Top Sellers:</h2>
+			<h2 className={styles.title}>Top Sellers</h2>
 			<div className={styles.container}>
 				<button className={buttonClasses} onClick={previousSlide}>&#10094;</button>
 				{
