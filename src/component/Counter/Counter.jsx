@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { PlantsContext } from '../../context/PlantsContextProvider';
+import styles from '../Counter/Counter.module.scss';
 
 const Counter = ({ itemIndex, cartQuantity, stockQuantity }) => {
 	const { updateQuantityInShoppingCart } = useContext(PlantsContext);
@@ -19,11 +20,13 @@ const Counter = ({ itemIndex, cartQuantity, stockQuantity }) => {
 		updateQuantityInShoppingCart(itemIndex, cartQuantity - 1);
 	}
 
+	let quantityButtonStyles = styles['quantity-buttons'];
+
 	return (
 		<div>
-			<h3>Quantity added: {cartQuantity}</h3>
-			<button onClick={incrementQuantity} disabled={stockQuantity === cartQuantity}>+</button>
-			<button onClick={decrementQuantity}>-</button>
+			<h3 className={styles.text}>Quantity: {cartQuantity}</h3>
+			<button className={quantityButtonStyles} onClick={incrementQuantity} disabled={stockQuantity === cartQuantity}>+</button>
+			<button className={quantityButtonStyles} onClick={decrementQuantity}>-</button>
 			{stockQuantity === cartQuantity && 
 			<p>Sorry! the quantity desired is out of stock, more plants will be available soon! Thank you.</p>}
 		</div>

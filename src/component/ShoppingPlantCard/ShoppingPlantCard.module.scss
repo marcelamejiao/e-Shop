@@ -3,7 +3,7 @@
 	justify-content: center;
 	align-items: center;
 	opacity: 0.9;
-	padding: 1rem;
+	padding: 0.5rem;
   box-shadow: 0 3px 4px rgba(53, 55, 45, 0.501);
 	width: 90%;
 	margin: 0.5rem;
@@ -25,4 +25,10 @@
 	object-fit: cover;
 	border-radius: 1rem;
 	max-width: 150px;
+}
+
+.subtotal {
+	color: rgb(125, 160, 140);
+	font-weight: 800;
+	font-size: medium;
 }

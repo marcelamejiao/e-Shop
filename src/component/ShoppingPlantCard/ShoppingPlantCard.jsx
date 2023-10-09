@@ -17,7 +17,7 @@ const ShoppingPlantCard = ({ plant, itemIndex, cartQuantity, variantId, subTotal
 				<h2>{plant.name}</h2>
 				<p>Price: ${plant.price}</p>
 				<Counter itemIndex={itemIndex} cartQuantity={cartQuantity} stockQuantity={variant.quantity}/>
-				<p>Subtotal: ${subTotal}</p>
+				<p className={styles.subtotal}>Subtotal: ${subTotal}</p>
 			</div>
 		</article>
 	);
