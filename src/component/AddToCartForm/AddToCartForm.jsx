@@ -38,7 +38,7 @@ const AddToCartForm = ({ plant }) => {
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(formSubmit)}>
 			<div>
-				Colors: 
+				<h2 className={styles.colors}>Colors:</h2>
 				{plant.variants.map((variant, index) => 
 					<div key={index}>
 						<input 

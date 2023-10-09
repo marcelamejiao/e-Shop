@@ -1,3 +1,5 @@
+@use '../../partials/mixins.scss';
+
 .container {
 	display: flex;
 	flex-direction: column;
@@ -26,7 +28,9 @@
 .payment-area {
 	display: flex;
 	flex-direction: column;
+	padding: 1rem;
 }
+
 .button {
 	transition: 0.5s ease;
 	border-radius: 0.5rem;
@@ -41,6 +45,14 @@
 	&:hover {
 		opacity: 1;
 		box-shadow: 0 3px 4px rgba(53, 55, 45, 0.501);
+	}
+}
+
+@include mixins.desktop {
+	.payment-area {
+		flex-direction: row;
+		justify-content: right;
+		padding: 1rem 4rem 1rem 0;
 	}
 }
 

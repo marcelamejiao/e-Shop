@@ -1,3 +1,11 @@
+@use '../../partials/mixins.scss';
+
+.form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .button {
 	transition: 0.5s ease;
 	border-radius: 0.5rem;
@@ -16,8 +24,14 @@
 	}
 }
 
-.form {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.colors {
+	padding: 1rem;
+	letter-spacing: .3rem;
 }
+
+@include mixins.desktop {
+	.form {
+		width: 50%;
+	} 
+ }
+
