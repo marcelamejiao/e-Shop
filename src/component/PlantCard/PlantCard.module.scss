@@ -1,4 +1,5 @@
 @use '../../partials/mixins.scss';
+@use '../../partials/palette.scss';
 
 .card {
   display: flex;
@@ -6,8 +7,8 @@
   margin: 1rem;
   width: 80%;
   height: 20rem;
-  border: 0.2rem solid rgba(155, 153, 153, 0.678);
-  box-shadow: 0 3px 4px rgba(53, 55, 45, 0.501);
+  border: 0.15rem solid palette.$tertiary-color;
+  box-shadow: 0 3px 4px palette.$box-shadow-soft;
   border-radius: 1rem;
   align-items: center;
   opacity: 0.9;
@@ -15,8 +16,8 @@
   &:hover{
       transform: translateY(-3px);
       border: none;
-      border-bottom: 0.5rem solid rgb(244, 218, 218);
-      border-top: 0.5rem solid rgb(244, 218, 218);
+      border-bottom: 0.5rem solid palette.$secondary-color;
+      border-top: 0.5rem solid palette.$secondary-color;
       transition: all 0.30s ease-in;
       opacity: 1;
 
@@ -28,7 +29,7 @@
     margin: auto;
     object-fit: cover;
     border-radius: 0.5rem;
-    box-shadow: 0 3px 4px rgba(53, 55, 45, 0.501);
+    box-shadow: 0 3px 4px palette.$box-shadow-soft;
   }
 }
 
