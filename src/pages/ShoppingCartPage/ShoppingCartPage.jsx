@@ -53,7 +53,7 @@ const ShoppingCartPage = () => {
 			</div>
 			{
 				showPaymentMessage && 
-				(<div><p>Thank you for your purchase. </p><Link to="/plants">Return Home</Link></div>)
+				(<div className={styles.message}><p>Thank you for your purchase. </p><Link to="/plants">Return Home</Link></div>)
 			}
 		</div>
 	);

@@ -52,10 +52,10 @@
 @include mixins.desktop {
 
 	.container{
-		height: 90vh;
+		height: 80%;
 	}
 	.card {
-		min-height: 80vh;
+		min-height: 70%;
 		width: 60%;
 		 flex-direction: row;
 		 font-size: 1.5rem;
