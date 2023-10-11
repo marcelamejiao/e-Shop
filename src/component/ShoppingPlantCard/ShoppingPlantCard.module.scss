@@ -1,0 +1,44 @@
+@use '../../partials/palette.scss';
+
+.card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.9;
+	padding: 0.5rem;
+  box-shadow: 0 3px 4px palette.$tertiary-color;
+	width: 90%;
+	margin: 0.5rem;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	gap: 1rem;
+	font-size: smaller;
+}
+
+.image {
+	height: 200px;
+	width: 50%;
+	object-fit: cover;
+	border-radius: 1rem;
+	max-width: 150px;
+}
+
+.subtotal {
+	color: palette.$main-color;
+	font-weight: 800;
+	font-size: medium;
+}
+
+.color {
+	background-color: palette.$tertiary-color;
+	color: palette.$basic-color-white;
+	border-radius: 0.5rem;
+	padding: 0.3rem;
+	box-shadow: 0 2px 3px palette.$tertiary-color;
+}

@@ -1,0 +1,23 @@
+@use '../../partials/palette.scss';
+
+.text {
+	text-align: center;
+}
+
+.quantity-buttons {
+	transition: 0.5s ease;
+	border-radius: 1rem;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 1rem;
+	margin: 0.5rem;
+	opacity: 0.8;
+	background-color: palette.$secondary-color;
+	cursor: pointer;
+
+
+	&:hover {
+		opacity: 1;
+		box-shadow: 0 3px 4px palette.$box-shadow-soft;
+	}
+}

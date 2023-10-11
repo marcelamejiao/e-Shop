@@ -1,33 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import PlantsPage from './pages/PlantsPage/PlantsPage';
+import PlantsContextProvider from './context/PlantsContextProvider';
+import PlantPage from './pages/PlantPage/PlantPage';
+import ShoppingCartPage from './pages/ShoppingCartPage/ShoppingCartPage';
+import NavBar from './component/NavBar/NavBar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <PlantsContextProvider>
+        <BrowserRouter>
+          <header>
+            <NavBar />
+          </header>
+          <Routes>
+            <Route path="/" element={<Navigate to="/plants" replace />} />
+            <Route path="/plants" element={<PlantsPage />} />
+            <Route path="/plants/:id" element={<PlantPage />} />
+            <Route path="/shoppingCart" element={<ShoppingCartPage />} />
+          </Routes>
+        </BrowserRouter>
+        <ToastContainer />
+      </PlantsContextProvider>
     </>
   )
 }

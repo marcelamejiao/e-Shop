@@ -1,0 +1,31 @@
+@use '../../partials/palette.scss';
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1rem 2rem 1rem 0;
+  background-color: palette.$main-color;
+  font-size: 1.3rem;
+  box-shadow: 0 3px 5px palette.$box-shadow-soft;
+
+  &:hover {
+		border: none;
+		border-bottom: 3px solid palette.$tertiary-color;
+		transition: all 0.10s ease-in; 
+	}
+}
+
+.link {
+  color: palette.$basic-color-white;
+  &:hover {
+    color: palette.$basic-color-white;
+  }
+}
+
+.active_link {
+  text-decoration: underline;
+  &:visited {
+    color:  palette.$basic-color-white;
+  }
+}

@@ -1,0 +1,38 @@
+@use '../../partials/mixins.scss';
+@use '../../partials/palette.scss';
+
+.form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button {
+	transition: 0.5s ease;
+	border-radius: 0.5rem;
+	font-weight: 700;
+	font-size: 1rem;
+	padding:  0.5rem 1rem 0.5rem 1rem;
+	opacity: 0.9;
+	background-color: palette.$secondary-color;
+	cursor: pointer;
+	margin: 1rem;
+
+
+	&:hover {
+		opacity: 1;
+		box-shadow: 0 3px 4px palette.$box-shadow-soft;
+	}
+}
+
+.colors {
+	padding: 1rem;
+	letter-spacing: .3rem;
+}
+
+@include mixins.desktop {
+	.form {
+		width: 50%;
+	} 
+ }
+

@@ -1,0 +1,56 @@
+@use '../../partials/mixins.scss';
+@use '../../partials/palette.scss';
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: palette.$background-light;
+	opacity: 0.9;
+	border-top: 0.3rem solid 	palette.$secondary-color;
+	border-bottom: 0.3rem solid palette.$secondary-color;
+	margin: 0.2rem 0 1rem 0;
+  box-shadow: 0 3px 4px palette.$box-shadow-soft;
+	width: 100%;
+
+	&:hover {
+		opacity: 1;
+		transform: translateY(-3px);
+		transition: all 0.30s ease-in;
+	}
+}
+
+.title {
+	text-align: end;
+	letter-spacing: .3rem;
+	font-weight: 900;
+}
+
+.slides-buttons {
+	transition: 0.5s ease;
+	border-radius: 1rem;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 1rem;
+	margin: 0.5rem;
+	opacity: 0.8;
+	background-color: palette.$secondary-color;;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+@include mixins.desktop {
+	.container {
+		width: 80%;
+		font-size: 2rem;
+	} 
+ }
+ 
+ @include mixins.tablet {
+	 .container {
+		font-size: 1.2rem;
+	 } 
+	}

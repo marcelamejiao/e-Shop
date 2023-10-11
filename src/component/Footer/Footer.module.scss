@@ -1,0 +1,14 @@
+@use '../../partials/palette.scss';
+
+.footer {
+	text-align: center;
+  background-color: palette.$main-color;
+  font-size: 1.3rem;
+	border-top: 3px solid palette.$tertiary-color;
+	color: palette.$basic-color-white;
+	padding: 1rem;
+	position: relative;
+	bottom: 0;
+
+
+}

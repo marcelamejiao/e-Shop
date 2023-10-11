@@ -1,0 +1,33 @@
+@use '../../partials/mixins.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: x-large;
+  text-align: center;
+  padding: 1rem;
+  letter-spacing: .3rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+
+@include mixins.desktop {
+ .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+ } 
+}
+
+@include mixins.tablet {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  } 
+ }
+
