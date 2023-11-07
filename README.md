@@ -35,7 +35,7 @@ Creating the colour and quantity variants of each plant's item was a little bit 
 
 ![Firestore](./img/firestore.png)
 
- Using the Context Provider and Props I could get access to each variant when the children needed access to use or modify the state variables. To render the shopping card I needed to use different Array iterators to give me access to the plant's stock quantity and the shopping cart quantity.
+ Using the Context Provider and Props I could get access to each variant when the children needed access to use or modify the state variables. To render the shopping cart I needed to use different Array iterators to give me access to the plant's stock quantity and the shopping cart quantity.
 
 I found this project a great source of learning and practice of React theory and the implementation of UseState, UseEffect, Context Provider and NoSQL Firestore database.
 
