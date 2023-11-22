@@ -8,10 +8,10 @@ const NavBar = () => {
 
   return (
     <nav className={styles.nav}>
-      <NavLink className={navLinkClasses} to='/plants'>
+      <NavLink className={navLinkClasses} to='/e-Shop/plants'>
         Plants
       </NavLink>
-      <NavLink className={navLinkClasses} to='/shoppingCart'>
+      <NavLink className={navLinkClasses} to='/e-Shop/shoppingCart'>
         My Cart
       </NavLink>
     </nav>

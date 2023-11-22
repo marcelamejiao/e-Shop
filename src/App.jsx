@@ -18,10 +18,10 @@ function App() {
             <NavBar />
           </header>
           <Routes>
-            <Route path="/" element={<Navigate to="/plants" replace />} />
-            <Route path="/plants" element={<PlantsPage />} />
-            <Route path="/plants/:id" element={<PlantPage />} />
-            <Route path="/shoppingCart" element={<ShoppingCartPage />} />
+            <Route path="/e-Shop" element={<Navigate to="/e-Shop/plants" replace />} />
+            <Route path="/e-Shop/plants" element={<PlantsPage />} />
+            <Route path="/e-Shop/plants/:id" element={<PlantPage />} />
+            <Route path="/e-Shop/shoppingCart" element={<ShoppingCartPage />} />
           </Routes>
         </BrowserRouter>
         <ToastContainer />
