@@ -21,12 +21,12 @@ This interface allows the user to purchase diverse plants.
  - By accessing the application the Home Page displays a Carousel with the favourited/top seller plants. Also a list with each plant is displayed with the name, price and a link to "See more" information about this item.
  - When the user clicks the "See more" link, the application shows a new page with the plant's photo and its variants of colours and prices.
  - The user can click the "Add to Cart" button to add the plant to the shopping cart. A toast message is displayed on the top-right of the screen saying "The item has been added to the shopping cart".
- - If a plant is out of stock the user can not click the colour radio button or the "Add to cart" buttton.
+ - If a plant is out of stock the user can not click the colour radio button or the "Add to cart" button.
   - If the user wants to see the shopping cart they can use the navigation bar to visit the shopping cart page which will display each item that was previously added. The shopping cart shows each plant's variant as an individual item.
 - The user can increment each item quantity by clicking the " + " button, or decrement it with the " - " button. They can also delete this item from the shopping cart when decreasing the quantity until it reaches zero.
 - A subtotal of each shopping cart item and the total of all the items are displayed on screen of the shopping cart. 
 - The user can click the "Pay" button to proceed with the transaction and is presented with a "Thank you for your purchase" message and also a link to "Return home".
-- When the shopping cart transaccion is completed the quantity of the items bought are decreased in Firestore.
+- When the shopping cart transaction is completed the quantity of the items bought are decreased in Firestore.
    
 
 ## **My experience**
@@ -80,7 +80,7 @@ npm run dev
 
 ## **Deployed link**
 
-💡 Live version: [To be deployed - click here!]()
+💡 Live version: [click here!](https://marcelamejiao.github.io/e-Shop/)
 
 ## **Future Development**
 
